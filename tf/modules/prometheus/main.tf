@@ -8,6 +8,14 @@ resource "docker_container" "prometheus" {
   image = "${docker_image.prometheus.latest}"
 
   networks = [
-    "${docker_network.graprometrics.id}"
+    "${var.network}"
   ]
+}
+
+data "template_file" "prometheus_config" {
+  template = "${file("${path.module}/etc/prometheus/prometheus.yml.tpl")}"
+
+  vars {
+    metrics_provider = "${var.scrape_target}"
+  }
 }
