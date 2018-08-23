@@ -4,7 +4,7 @@ resource "docker_image" "grafana" {
 }
 
 resource "docker_container" "grafana" {
-  name = "grafana"
+  name = "${local.container_name}"
   image = "${docker_image.grafana.latest}"
 
   networks = [
@@ -17,6 +17,6 @@ resource "docker_container" "grafana" {
   }
 
   env = [
-    "GF_SECURITY_ADMIN_PASSWORD=secret"
+    "GF_SECURITY_ADMIN_PASSWORD=${local.pw}"
   ]
 }
