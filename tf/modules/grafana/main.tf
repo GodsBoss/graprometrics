@@ -8,6 +8,6 @@ resource "docker_container" "grafana" {
   image = "${docker_image.grafana.latest}"
 
   networks = [
-    "${docker_network.graprometrics.id}"
+    "${var.network}"
   ]
 }
