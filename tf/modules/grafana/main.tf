@@ -15,4 +15,8 @@ resource "docker_container" "grafana" {
     internal = 3000
     external = 3000
   }
+
+  env = [
+    "GF_SECURITY_ADMIN_PASSWORD=secret"
+  ]
 }
