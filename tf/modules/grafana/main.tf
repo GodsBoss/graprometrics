@@ -10,4 +10,9 @@ resource "docker_container" "grafana" {
   networks = [
     "${var.network}"
   ]
+
+  ports = {
+    internal = 3000
+    external = 3000
+  }
 }
