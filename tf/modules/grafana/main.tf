@@ -13,7 +13,7 @@ resource "docker_container" "grafana" {
 
   ports = {
     internal = 3000
-    external = 3000
+    external = "${var.port}"
   }
 
   env = [
