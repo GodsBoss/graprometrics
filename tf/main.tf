@@ -19,6 +19,7 @@ module "grafana" {
   source = "./modules/grafana"
 
   network = "${docker_network.graprometrics.id}"
+  port = 3000
 }
 
 module "dashboards" {
