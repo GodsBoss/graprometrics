@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Example (run in root dir):
+# ./terraform apply -var hostname=`hostname` tf
+
 docker run --rm -it \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v `pwd`:/root \
