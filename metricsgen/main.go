@@ -37,8 +37,10 @@ func createRegistry() *prometheus.Registry {
 func randomCounter() prometheus.Counter {
 	counter := prometheus.NewCounter(
 		prometheus.CounterOpts{
-			Name: "count",
-			Help: "Counts things",
+			Namespace: "godsboss",
+			Subsystem: "metricsgen",
+			Name:      "count",
+			Help:      "Counts things",
 		},
 	)
 	go func(inc func()) {
