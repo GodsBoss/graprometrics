@@ -1,5 +1,5 @@
 output "auth" {
-  value = "root:${local.pw}"
+  value = "admin:${local.pw}"
 }
 
 output "port" {
