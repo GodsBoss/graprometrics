@@ -20,3 +20,10 @@ module "grafana" {
 
   network = "${docker_network.graprometrics.id}"
 }
+
+module "dashboards" {
+  source = "./modules/dashboards"
+
+  grafana_url = "http://localhost:3000/"
+  prometheus_url = "${module.prometheus.url}"
+}

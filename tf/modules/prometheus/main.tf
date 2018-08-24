@@ -4,7 +4,7 @@ resource "docker_image" "prometheus" {
 }
 
 resource "docker_container" "prometheus" {
-  name = "prometheus"
+  name = "${local.container_name}"
   image = "${docker_image.prometheus.latest}"
 
   networks = [
