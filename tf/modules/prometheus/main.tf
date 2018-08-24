@@ -10,6 +10,11 @@ resource "docker_container" "prometheus" {
   networks = [
     "${var.network}"
   ]
+
+  upload {
+    file = "/etc/prometheus/prometheus.yml"
+    content = "${data.template_file.prometheus_config.rendered}"
+  }
 }
 
 data "template_file" "prometheus_config" {
