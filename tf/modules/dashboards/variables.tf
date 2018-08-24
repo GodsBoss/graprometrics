@@ -1,3 +1,7 @@
+variable "auth" {
+  type = "string"
+}
+
 variable "grafana_url" {
   type = "string"
 }

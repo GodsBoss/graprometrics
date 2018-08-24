@@ -25,6 +25,7 @@ module "grafana" {
 module "dashboards" {
   source = "./modules/dashboards"
 
+  auth = "${module.grafana.auth}"
   grafana_url = "http://${var.hostname}:${module.grafana.port}/"
   prometheus_url = "${module.prometheus.url}"
 }
